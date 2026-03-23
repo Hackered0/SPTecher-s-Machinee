@@ -1,0 +1,161 @@
+/* Importando a fonte Poppins (estilo moderno) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #e50914; /* Aqui adiciona cor, eu adicionei a cor vermelha */
+    --text-color: #ffffff; /*Cor do texto*/
+    --bg-overlay: rgba(0, 0, 0, 0.6); /* Escurecer o vídeo */
+    --glass-bg: rgba(255, 255, 255, 0.08); /* Fundo da caixa (A que está escria as coisas) */
+    --glass-border: rgba(255, 255, 255, 0.15); /* Borda da caixa */
+    --highlight-color: #00f2fe; /* Azul Arcane para destaque */
+}
+
+* {
+    margin: 0; /*Muda as margens do google*/
+    padding: 0; /*Muda margem */
+    box-sizing: border-box; /*Garante que as bordas não aumentem */
+    font-family: 'Poppins', sans-serif; /*Fonte que a gente importou*/
+}
+
+body {
+    width: 100%; /*Largura da imagem de fundo */
+    height: 100vh; /*Altura da imagem de fundo */
+    overflow: hidden; /* Evita barras de rolagem */
+    background-color: #000; /* Fundo preto caso o vídeo falhe */
+    color: var(--text-color); /*Cor fo texto*/
+}
+
+/* --- IMAGEM DE FUNDO (ESTILO STREAMING) --- */
+.back-video {
+    position: fixed; /*Posição da img*/
+    top: 0; /*Serve para posicionar a imagem também */
+    left: 0; /*Serve para posicionar a imagem também */
+    width: 100vw; /*Largura*/
+    height: 100vh; /*Altura*/
+    z-index: -2;
+    object-fit: cover; /* Faz a imagem cobrir a tela sem esticar */
+    object-position: center; /* Garante que o centro da imagem (o personagem) apareça */
+
+}
+
+/* Camada escura sobre a imagem  (para o texto aparecer) */
+.overlay {
+    position: fixed; /*Posição da imagem*/
+    top: 0;
+    left: 0;
+    width: 100%; /*Largura*/
+    height: 100%; /*altura*/
+    background: var(--bg-overlay); /*Fundo*/
+    z-index: -1; /*Isso aqui serve para identificar o que colocar atrás e o que colocar na frente,
+    negativo é atrás e positivo na frente, e assim por diante*/
+}
+
+/* --- CONTEÚDO PRINCIPAL (CENTRALIZADO) --- */
+.main-content {
+    width: 100%; /*Largura*/
+    height: 100vh; /*Altura*/
+    display: flex;
+    justify-content: flex-end; /* Move o conteúdo para o fim (direita) */
+    align-items: center; /* Mantém centralizado verticalmente */
+    padding-right: 8%; /* Dá uma margem da borda da tela para não ficar colado */
+    z-index: 1;
+}
+
+/* --- A CONTAINER (EFEITO DE VIDRO / GLASSMORPHISM) --- */
+.container {
+    width: 100%; /*Largura */
+    max-width: 450px; 
+    margin-right: 20px; /* Garante um espacinho da borda direita */
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 40px;
+    backdrop-filter: blur(20px); /* OBRIGATÓRIO PARA O EFEITO DE VIDRO */
+    -webkit-backdrop-filter: blur(20px); /* Suporte Safari */
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.logo-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--highlight-color); /* Azul Arcane */
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* --- INPUT GROUP (ESTILO MODERNO) --- */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0 20px;
+    font-size: 1rem;
+    color: var(--text-color);
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--highlight-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* --- BOTÃO (ESTILO NETFLIX) --- */
+.btn-convert {
+    width: 100%;
+    height: 55px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.btn-convert:hover {
+    background-color: #ff1f29; /* Vermelho mais claro */
+    transform: translateY(-2px); /* Efeito de flutuar */
+}
+
+/* --- ÁREA DE RESULTADOS --- */
+.results-area h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.result-box p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.result-value {
+    color: var(--highlight-color); /* Azul Arcane */
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace; /* Fonte mono para números */
+    margin-left: 5px;
+}

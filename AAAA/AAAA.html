@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="b.css">
+    <title>SPTecher's Machine | Arcane Edition</title>
+</head>
+<body>
+    <script>
+        /* Anotações do código */
+        /* Link = Conecta essa parte (HTML), com o css */
+    </script>
+
+    <img src="victor.jpg" alt="Personagem victor" class="back-video">
+
+    <script>
+        /* O pq da tag de vídeo :
+         'autoplay' inicia sozinho, 'loop' repete o vídeo, 
+         'muted' é obrigatório para o navegador permitir o autoplay e 
+         'playsinline' ajuda na reprodução em celulares. */
+
+        /* Primeira div, a overlay */
+        /* Camada vazia que serve apenas para aplicar uma cor escura sobre a imagem,
+        garantindo que os textos brancos fiquem fáceis de ler */
+    </script>
+
+    <div class="overlay"></div>
+
+    <script>
+        /* A div é como se fosse uma caixinha, e temos que guardar as coisas dentro para usar no css,
+        aqui, dei o nome dela de duas formas o main-content e o container, ambos guardando algumas informações
+        do código */
+    </script>
+
+    <main class="main-content">
+        <div class="container">
+            <script>
+             /* Aqui o highlight serve para deixar uma parte do titulo mais marcante,
+             no caso destacada */
+             /*Span serve como um "FANTASMA" dando para usar essa tag com mais facilidade para adicionar o italico e deixar
+             as letras em negrito ou coisa do tipo*/
+            </script>
+            <h1 class="logo-title">SPTecher's <span class="highlight">Machine</span></h1> 
+            
+            <p class="subtitle">Conversor de Base Numérica </p>
+
+            <div class="input-group">
+                <input id="demo1" type="number" placeholder="Digite um número, ex: 42" required>
+            </div>
+            
+            <button onclick="converter()" class="btn-convert">Converter Agora</button>
+
+            <div class="results-area">
+                <h3>Resultados</h3>
+                <div class="result-box">
+                    <p>Octal: <span id="demo2" class="result-value"></span></p>
+                    <p>Hexadecimal: <span id="demo3" class="result-value"></span></p>
+                    <p>Binário: <span id="demo4" class="result-value"></span></p>
+                </div>
+            </div>
+
+            <audio id="musicaFundo" src="arcane.mp3" loop></audio> 
+
+            <script>
+                /* Aqui seria o audio que vai ter no site, assim que o usuario abrir o site ele já vai escutar a musica */
+            </script>
+        </div>
+    </main>
+
+    <script>
+        function converter() {
+            /* Pegamos o valor digitado diretamente pelo ID do input */
+            var decimalString = demo1.value;
+            var decimal = Number(decimalString);
+
+            /* Tenta dar play na música usando o ID que definimos na tag <audio> */
+            /* O 'if' evita que o código pare caso a música ainda não tenha carregado */
+            if (window.musicaFundo) {
+                musicaFundo.play();
+            }
+
+            /* Validação simples: se não for número ou estiver vazio, limpa os campos */
+            if (isNaN(decimal) || decimalString === "") {
+                demo2.innerHTML = "---";
+                demo3.innerHTML = "---";
+                demo4.innerHTML = "---";
+                return;
+            }
+
+            /* Realiza as conversões e exibe nos campos usando os IDs diretamente */
+            /* .toString(base) é o truque para converter para Octal(8), Hexa(16) ou Binário(2) */
+            demo2.innerHTML = decimal.toString(8);
+            demo3.innerHTML = decimal.toString(16).toUpperCase(); 
+            demo4.innerHTML = decimal.toString(2);
+        }
+    </script>
+</body>
+</html>
